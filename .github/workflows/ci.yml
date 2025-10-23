@@ -1,23 +1,23 @@
- name: Integración Continua
+name: Integración Continua
  
- on:
-    [push, pull_request]
+on:
+  [push, pull_request]
 
- jobs:
-    build:
-        runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-        -name: Checkout del código
+      - name: Checkout del código
         uses: actions/checkout@v4
         
-        -name: Configurar Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
           
-        -name: Instalar dependencias
+      - name: Instalar dependencias
         run: npm ci
-        
-        -name: Ejecutar pruebas
-        run: npm test--silent
+
+      - name: Ejecutar pruebas
+        run: npm test --silent
